@@ -3,49 +3,67 @@
 #include <vector>
 using namespace std;
 
-bool binary_search( vector<int> sequence, int value )
+bool binary_search(vector<int> sequence, int value)
 {
-    // COMPLETE ME
-    return false;
+	int low = 0;
+	int high = sequence.size();
+	int mid;
+	while (low < high)
+	{
+		mid = ((low + high) / 2);
+		if (sequence[mid] < value)
+			{
+			low = mid + 1;
+			}
+		else if (sequence[mid] > value)
+			{
+			high = mid - 1;
+			}
+		else if (sequence[mid] == value)
+			{
+				return true;
+			}
+	}
+	return false;
 }
 
 
 int main()
 {
-    int errflg = 0;
-    const int size = 33;
-    vector<int> sequence;
-    sequence.resize(size);
+	int errflg = 0;
+	const int size = 33;
+	vector<int> sequence;
+	sequence.resize(size);
 
-    // search test values and results
-    struct Test
-    {
-        int value;
-        bool expected;
+	// search test values and results
+	struct Test
+	{
+		int value;
+		bool expected;
 
-    };
-    array<Test,4> testing = {{ {96,true}, {33, true}, {31, false}, {76, false} }};
-    
-    // populate sequence
-    int count = 0;
-    for( int &i : sequence )
-    {
-        i = count;
-        count += 3;
-    }
+	};
+	array<Test, 4> testing = { { { 96,true },{ 33, true },{ 31, false },{ 76, false } } };
 
-    // carry out the tests
-    for( Test test : testing )
-    {
-        bool result = binary_search( sequence, test.value );
+	// populate sequence
+	int count = 0;
+	for (int &i : sequence)
+	{
+		i = count;
+		count += 3;
+	}
 
-        cout << (result == test.expected ? "Passed" : "Failed") << 
-            " search for " << test.value << " test, got " <<
-            (result ? "true" : "false") << " expected " <<
-            (test.expected ? "true" : "false") << endl;
+	// carry out the tests
+	for (Test test : testing)
+	{
+		bool result = binary_search(sequence, test.value);
 
-        if( result != test.expected ) errflg += 1;
-    }
+		cout << (result == test.expected ? "Passed" : "Failed") <<
+			" search for " << test.value << " test, got " <<
+			(result ? "true" : "false") << " expected " <<
+			(test.expected ? "true" : "false") << endl;
 
-    return errflg;
+		if (result != test.expected) errflg += 1;
+	}
+
+	return errflg;
 }

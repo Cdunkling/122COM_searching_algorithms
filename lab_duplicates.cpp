@@ -4,29 +4,58 @@
 #include <stdlib.h>
 using namespace std;
 
-bool duplicates( vector<int> &values )
+bool duplicates(vector<int> &values)
 {
-    // COMPLETE ME
+	for each (int i in values)
+	{
+		int count = 0;
+		for each (int j in values)
+		{
+			if (i == j)
+			{
+				count++;
+			}
+		}
+		if (count > 1)
+		{
+			return true;
+		}
+	}
 
-    return false;
+	return false;
 }
 
 int main()
 {
-    // === print user instructions ======
-    cout << "Enter a series of numbers, one at a time. " << endl;
+	bool correctinput = false;
+	// === print user instructions ======
+	cout << "Enter a series of numbers, one at a time. " << endl;
 
-    // === get user input ======
-    vector<int> inputs;
-    // COMPLETE ME
+	// === get user input ======
+	vector<int> inputs;
 
-    // === confirm to the user what they entered ======
-    cout << "You entered :";
-    for( int i : inputs )
-    {
-        cout << i << ", ";
-    }
-    cout << endl;
+		for (int i = 0; i < 5; i++)
+		{
+			int num;
+			cin >> num;
+			inputs.emplace_back(num);
+		}
 
-    return 0;
+
+		// === confirm to the user what they entered ======
+		cout << "You entered :";
+		for (int i : inputs)
+		{
+			cout << i << ", ";
+		}
+		cout << endl;
+		if (duplicates(inputs) == true)
+		{
+			cout <<"there are duplicates \n";
+		}
+		else
+		{
+			cout << "there are no duplicates \n";
+		}
+	return 0;
 }

@@ -2,7 +2,9 @@
 import sys
 
 def linear_search( sequence, value ):
-    # COMPLETE ME
+    for i in sequence:
+        if(i==value):
+            return True
     return False
 
 

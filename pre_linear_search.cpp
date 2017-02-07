@@ -5,7 +5,13 @@ using namespace std;
 
 bool linear_search( vector<int> sequence, int value )
 {
-    // COMPLETE ME
+   for each( int i in sequence)
+   {
+	   if (i == value)
+	   {
+		   return true;
+	   }
+   }
 
     return false;
 }

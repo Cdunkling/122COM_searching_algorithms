@@ -1,9 +1,17 @@
 #!/usr/bin/python3
 import sys
 
-def binary_search( sequence, value ):
-    # COMPLETE ME
-
+def binary_search( sequence, value):
+    low=0
+    high=len(sequence)
+    while low <= high:
+        mid = int((low+high) / 2 )
+        if (sequence[mid] < value):
+            low=mid + 1
+        elif (sequence[mid] > value):
+            high =mid - 1
+        else:
+            return True
     return False
 
 

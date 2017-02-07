@@ -2,7 +2,10 @@
 import sys
 
 def search_string( text, substr ):
-    # COMPLETE ME
+    textsplit= text.split()
+    for i in range(0,len(textsplit)):
+        if textsplit[i]==substr:
+            return True
 
     return False
 
